@@ -150,7 +150,7 @@ const Login = ({ history }) => {
           )}
 
           {loginForm()}
-          <Button
+          {/* <Button
             type="danger"
             onClick={handleGoogleLogin}
             block
@@ -159,7 +159,7 @@ const Login = ({ history }) => {
             size="large"
           >
             Login with Google
-          </Button>
+          </Button> */}
           <Link
             to="/forgot/password"
             className="float-right text-danger"
