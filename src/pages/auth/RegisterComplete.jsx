@@ -20,19 +20,20 @@ const RegisterComplete = () => {
 
   const { email, username, password1, password2 } = users;
 
-  const { user } = useSelector((state) => ({ ...state }));
+  //const { user } = useSelector((state) => ({ ...state }));
 
   useEffect(() => {
     const ac = new AbortController();
     setUser({
-      ...user,
+      ...users,
       email: window.localStorage.getItem("emailForRegistration"),
     });
+    console.log(users);
     return () => ac.abort();
-  }, [user, history]);
+  }, [history]);
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ ...users, [e.target.name]: e.target.value });
   };
 
   const handleClick = async () => {
@@ -46,7 +47,7 @@ const RegisterComplete = () => {
     }
     if (password1 !== password2) {
       toast.error("Las Contraseñas ingresadas no son iguales");
-      setUser({ ...user, password1: "", password2: "" });
+      setUser({ ...users, password1: "", password2: "" });
       return;
     }
 
